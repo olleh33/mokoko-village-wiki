@@ -1,0 +1,17 @@
+/* Theme toggle and dark tokens. Components read tokens from guide.css, so dark mode only redefines them. */
+:root{color-scheme:light}
+.theme-toggle{flex:none;display:flex;align-items:center;gap:7px;min-height:40px;padding:0 14px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink-2);font-size:14px;font-weight:700;white-space:nowrap}
+.theme-toggle svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.theme-toggle:hover{background:var(--surface-2)}
+:root[data-theme="dark"]{color-scheme:dark;
+ --bg:#0f1714;--surface:#16211c;--surface-2:#1f2d26;--line:#2c3c34;--line-strong:#3c5046;
+ --ink:#eaf0e6;--ink-2:#c3cfc2;--muted:#93a296;
+ --brand:#2f6b57;--brand-2:#8fd0ad;--brand-ink:#f5ecd2;--accent:#e0a64a;--accent-soft:#2e2718;--accent-ink:#f0cf92;
+ --good:#7cc68d;--code:#233a2e;--code-ink:#bfe8c9;--shadow:0 10px 30px #0006;scrollbar-color:#3c5046 #0f1714}
+:root[data-theme="dark"] .hero{background:radial-gradient(120% 140% at 100% 0%,#2e6a54 0%,#1b4436 55%,#10281f 100%)}
+:root[data-theme="dark"] input::placeholder{color:var(--muted);opacity:1}
+:root[data-theme="dark"] ::selection{background:#2f6b57;color:#fff}
+@media(max-width:1100px){.patch{display:none}}
+@media(max-width:820px){.theme-toggle{padding:0 10px}.theme-toggle span{display:none}}
+/* Header: search and theme toggle centered on the page; brand left, patch notes right. */
+@media(min-width:821px){.top{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,540px) auto minmax(0,1fr)}.top .brand{justify-self:start}.top .search-wrap{max-width:none;width:100%}.top .patch{justify-self:end;margin-left:0}}
